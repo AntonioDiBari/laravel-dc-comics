@@ -3,7 +3,7 @@
 @section('page-title', 'COMICS')
 
 @section('main-content')
-    {{-- <section class="gallery">
+    <section class="gallery">
         <div class="container">
             <div class="gallery-img">
                 <img src="{{ $comic['thumb'] }}" alt="{{ $comic['series'] }}">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="info d-flex">
                         <div class="subtitle">U.S. Price</div>
-                        <div class="">{{ $comic['price'] }}
+                        <div class="">${{ $comic['price'] }}
                         </div>
                     </div>
                     <div class="info d-flex">
@@ -67,7 +67,12 @@
                     </div>
                 </div>
             </div>
+            <div class="d-flex justify-content-end">
+                <a href="{{ route('comics.index') }}">
+                    <i class="fa-solid fa-left-long"></i>
+                    Torna indietro</a>
+            </div>
         </div>
 
-    </section> --}}
+    </section>
 @endsection

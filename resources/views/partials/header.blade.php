@@ -22,9 +22,9 @@
                     <a href="{{ route('characters') }}">CHARACTERS</a>
                 </li>
                 <li @class([
-                    'active' => Route::currentRouteName() == 'comics.index',
-                
-                    //|| Route::currentRouteName() == 'comic-detail',
+                    'active' =>
+                        Route::currentRouteName() == 'comics.index' ||
+                        Route::currentRouteName() == 'comics.show',
                 ])>
                     <a href="{{ route('comics.index') }}">COMICS</a>
                 </li>

@@ -94,7 +94,7 @@ a {
     .container {
         position: relative;
         .thumb {
-            height: 200px;
+            // height: 200px;
             overflow: hidden;
             img {
                 object-fit: cover;
@@ -105,7 +105,7 @@ a {
             position: absolute;
             background-color: #0282f9;
             padding: 7px 20px;
-            top: -70px;
+            top: -50px;
             left: 80px;
             font-weight: bold;
             font-size: 1.2rem;

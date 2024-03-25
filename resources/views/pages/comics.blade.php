@@ -5,17 +5,21 @@
 @section('main-content')
     <section class="comics pt-5">
         <div class="container">
-            <div class="row">
-                {{-- @foreach ($comics as $index => $comic)
+            <div class="row g-4 mb-5">
+                @forelse ($comics as $comic)
                     <div class="col-2">
-                        <a href="{{ route('comic-detail', ['index' => $index]) }}">
+                        <a href="{{ route('comics.show', $comic) }}">
                             <div class="thumb">
                                 <img src="{{ $comic['thumb'] }}" alt="{{ $comic['series'] }}">
                             </div>
                         </a>
                         {{ $comic['series'] }}
                     </div>
-                @endforeach --}}
+                @empty
+                    <div class="col-12">
+                        <span class="text-danger">Nessun Fumetto</span>
+                    </div>
+                @endforelse
             </div>
             <div class="title">CURRENT SERIES</div>
             <div class="row justify-content-center align-center">
