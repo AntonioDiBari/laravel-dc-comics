@@ -1,0 +1,44 @@
+@extends('layout.app')
+
+@section('page-title', 'AGGUNGI FUMETTO')
+
+@section('main-content')
+    <div class="container my-4">
+        <form action="{{ route('comics.store') }}" method="POST">
+            @csrf
+            <div class="row g-3">
+                <div class="col-3">
+                    <label for="title" class="form-label">Comic Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required />
+                </div>
+                <div class="col-3">
+                    <label for="series" class="form-label">Comic Series</label>
+                    <input type="text" class="form-control" id="series" name="series" required />
+                </div>
+                <div class="col-3">
+                    <label for="type" class="form-label">Comic Type</label>
+                    <input type="text" class="form-control" id="type" name="type" required />
+                </div>
+                <div class="col-3">
+                    <label for="sale_date" class="form-label">Comic Release Date</label>
+                    <input type="date" class="form-control" id="sale_date" name="sale_date" required />
+                </div>
+                <div class="col-3">
+                    <label for="price" class="form-label">Comic Price</label>
+                    <input type="text" class="form-control" id="price" name="price" placeholder="es. 10.49"
+                        required />
+                </div>
+                <div class="col-3">
+                    <label for="thumb" class="form-label">Thumb URL</label>
+                    <input type="url" class="form-control" id="thumb" name="thumb" />
+                </div>
+                <div class="col-12">
+                    <textarea class="form-control" id="description" name="description" rows="4"
+                        placeholder="Insert comic's description"></textarea>
+                </div>
+
+                <div class="col-2"><button class="btn btn-primary">Aggiungi</button></div>
+            </div>
+        </form>
+    </div>
+@endsection

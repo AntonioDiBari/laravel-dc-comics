@@ -23,7 +23,9 @@
             </div>
             <div class="title">CURRENT SERIES</div>
             <div class="row justify-content-center align-center">
-                <div class="col-2 more m-3">LOAD MORE</div>
+
+                <div class="col-2 more m-3"><a href="{{ route('comics.create') }}" class="text-white">ADD COMIC</a></div>
+
             </div>
         </div>
     </section>

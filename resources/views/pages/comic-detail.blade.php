@@ -57,7 +57,7 @@
                     </div>
                     <div class="info d-flex">
                         <div class="subtitle">U.S. Price</div>
-                        <div class="">${{ $comic['price'] }}
+                        <div class="">{{ $comic->get_price() }}
                         </div>
                     </div>
                     <div class="info d-flex">

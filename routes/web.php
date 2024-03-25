@@ -26,7 +26,6 @@ Route::get("/", function () {
 })->name('home');
 
 Route::resource('comics', ComicController::class);
-// Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
 
 Route::get('/characters', function () {
   return view('pages.characters');
