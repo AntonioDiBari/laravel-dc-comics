@@ -1,7 +1,7 @@
 @extends('layout.app')
 
-@section('page-title', 'HOMEPAGE')
+@section('page-title', 'FANS')
 
 @section('main-content')
-    <h1>HOMEPAGE</h1>
+    <h1>FANS</h1>
 @endsection

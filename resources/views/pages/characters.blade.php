@@ -1,7 +1,7 @@
 @extends('layout.app')
 
-@section('page-title', 'HOMEPAGE')
+@section('page-title', 'CHARACTERS')
 
 @section('main-content')
-    <h1>HOMEPAGE</h1>
+    <h1>CHARACTERS</h1>
 @endsection
