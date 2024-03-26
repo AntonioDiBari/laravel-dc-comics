@@ -11,7 +11,7 @@
         </div>
     </section>
     <section class="description">
-        <div class="container">
+        <div class="container mb-2">
             <div class="row my-5">
                 <div class="col-8">
                     <h2 class="text-uppercase">{{ $comic['title'] }}</h2>
@@ -24,6 +24,8 @@
                     </div>
                 </div>
             </div>
+            <a href="{{ route('comics.edit', $comic) }}">Update Comic #{{ $comic->id }} Data</a>
+
         </div>
     </section>
     <section class="infos pt-3">
