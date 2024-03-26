@@ -15,6 +15,14 @@
 
 <body>
     @include('partials.header')
+    <div class="container alert-container">
+        @if (session('message'))
+            <div class="alert {{ session('type') }} alert-dismissible my-5">
+                {{ session('message') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    </div>
     @yield('main-content')
     @include('partials.footer')
     @yield('modal')
