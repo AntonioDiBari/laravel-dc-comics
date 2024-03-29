@@ -36,6 +36,8 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+        $this->validate_form($request);
         $comic_data = $request->all();
         $comic = new Comic();
 
@@ -79,6 +81,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+        $this->validate_form($request, $comic);
         $data = $request->all();
         $comic->update($data);
 
@@ -100,5 +103,37 @@ class ComicController extends Controller
             ->with("message", "Comic deleted successfully")
             ->with("type", "alert-danger");
 
+    }
+
+
+    /**
+     *  $id = null serve nel caso ci sia un campo unique da ignorare e
+     * accettare il medesimo valore se inserimento (non creazione),
+     * perciò se passato dalla update controlla ed evita di dare l'errore altrimenti
+     * è unique di inserimento. Vainserita la direttiva Rule
+     * 
+    //  * use Illuminate\Validation\Rule;
+     * 
+    //  * !empty ($id) ? Rule::unique ('comics', 'title')-ignore($id) : Rule::unique('comics', 'title')
+     *  
+     * */
+    private function validate_form($request, $id = null)
+    {
+        $request->validate([
+            'title' => 'required|string|max:100',
+            'series' => 'required|string|max:100',
+            'type' => 'required|string|max:100',
+            'sale_date' => 'required|date',
+            'price' => ['required', 'numeric', 'between:0.01,9999.99'],
+            'thumb' => 'nullable|URL',
+            'description' => 'required|min:3|max:1000',
+        ], [
+            'title.required' => 'Il titolo è obbligatorio',
+            'series.required' => 'La serie è obbligatoria',
+            'type.required' => 'Il tipo è obbligatorio',
+            'sale_date.required' => 'La data di messa in vendita è obbligatoria',
+            'price.required' => 'Il prezzo è obbligatorio',
+            'description.required' => 'La descrizione è obbligatoria'
+        ]);
     }
 }
